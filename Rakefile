@@ -1,5 +1,5 @@
 
-
+desc "`rake` will default to running `rake:spec`"
 task :default => :spec
 
 desc "Run all the rspec examples"
