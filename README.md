@@ -104,21 +104,146 @@ Github makes handling pull requests easy to initiate, easy to view, and easy mer
 
 ### Back to the Dungeons
 
+Similar to the previous exercise, it's time to go back to work. Each exercise file introduces a new concept with a few working examples. Within the file are a number of failing examples. You're job is to fix the examples.
+
 * Fork and clone this repository
+
+        Instructions on how to Fork and Clone: http://help.github.com/fork-a-repo/
+
+* Run Bundler
+
+```bash
+bundle
+```
+
 * Run the tests
+
+```bundle
+rake
+```
+
+I strongly encourage that you run `guard` in another command/terminal window. As you fix tests (or break them further) you will see the results immediately.
+
 * Fix the failing tests
 
+* Save your changes
+
+```bash
+git add spec
+git commit -m "Fixes to the Broken Examples"
+```
+
+* Share your changes
+
+```bash
+git push origin master
+```
+
+
+## Exploration
+
+Congratulations. If you have made it this far you have completed all you had to accomplish. But I'm sure that you likely have burning questions or would like to learn more about a particular technology or Ruby. This is your chance...
 
 ### [Do you hear the grasshopper at your feet?](http://www.youtube.com/watch?v=WCyJRXvPNRo)
 
-* Starting over
+[Git](http://gitref.org/) is complex software. I am repeating myself from the previous exercise on purpose. It is complex. I continue to learn a new command or flag each week. Try not to become overwhelmed.
 
-    $ get checkout -- *
-    
-* Putting away your work
+I want to share with you a few useful commands to aid you in future work.
+
+#### Starting over
+
+Occasionally you will spend some time trying to find a solution and in the process realize that you completely *messed* everything up. Royally. In the old days you probably held down CTRL+Z / CMD+Z hoping that your editor will take you all the way back in time when everything worked. Most of the time that works. Sometimes it failed you.
+
+The awesome thing about having a local source repository is that you have access to all the changes that you've made. A lot of times the most important one is the last one. The one before you tried your crazy experiment. Git makes it easy to experiment.
+
+Try changing a few files any way you want - add a few characters here; remove a few characters there - do your worst. When you are done run the command:
+
+    $ git status
+
+This will show you a list of the files that you have changed. You should see the files that you have decimated and dismembered.
+
+    $ git checkout -- NAME_OF_THE_FILE_YOU_CHANGED
+
+Some text editors will notify you that the files have changed. If it has not then re-open the file. You should be presented with your original file. The state of the file at the state of the last time you committed.
+
+#### Putting away your work
+
+Sometimes you have work you do not want to throw away and instead put aside for a moment to do something else with the code. To start over BUT keep those changes you can use the following command:
 
     $ git stash
     
-* Cleaning up after yourself
+`git stash` takes your current changes and tucks them away. It secretly commits them and stores them on the side for you. This allows you to clean up all your changes allowing you to start fresh. When you are done you can bring back stashed code with the following command:
+
+    $ git stash pop
+
+This is useful for times when you are working on something and realize that something else is broken and you want to fix that before continuing on with the work that you are doing.
+
+Again make some changes throughout various files. Stash those changes. Change another file, stage, and then commit that change (suggestion: add some comments). Now pop the stashed changes.
+
+#### Cleaning up after yourself
+
+The previous commands work well for files that the git repository knows about, but not about the git repository has no control over (files you have never added to it). Sometimes your code may have spewed some files that are cluttering up your directories. You can delete them as you would normally. You can also use the `git clean` command which will do some of the work for you (and being cautious about the files you have within your source repository).
+
+Generate a bunch of files in various directories by copying other files or using the command `touch NAME_OF_FILE`. After you generate some files look at your status:
+
+    $ git status
+    
+You should a list of files in the *untracked* section. Now make some changes to your files that you do track. Now run:
 
     $ git clean -df
+    
+Running this command should clean up all the files in your directories while leaving the changes that you made to the files that you have in source control.
+
+
+### [Arrays](http://rubydoc.info/stdlib/core/1.9.2/Array) and [Hashes](http://rubydoc.info/stdlib/core/1.9.2/Hash)
+  
+Arrays and Hashes are awesome in Ruby and that is in large part thanks to Enumerable. Take some times to explore the API and the methods available to arrays and hashes.
+
+For both Array and Hash:
+
+* Find two method that interests you
+* Create a new RSpec example `it "should sort the Array for me"` that exercises that method.
+
+### HighLine Gem
+
+We purposefully skipped some some introductory programming examples where we output questions and then ask for responses. Usually this is done through `puts` and `gets`. Next week we are going to explore some questions and answer type programming but with a much more robust way with [Highline](http://rubydoc.info/gems/highline/1.6.2/frames).
+
+Run the command:
+
+```bash
+$ rake highline
+```
+
+Or
+
+```bash
+$ ruby lib/highline.rb
+```
+
+    NOTE: Window's users need to use a backslash \ instead of forward slashes /
+
+It should hopefully say hello and ask you a question. When you are happy with that open up `lib/highline.rb` and look at the syntax. You may have a strange sense of deja-vu when looking at this code. It looks very much like RSpec, Guard, Rake, and all these other files that we have used up until this point.
+
+Take a stab at adding your own [questions, default answers, validations, or menus](http://rubydoc.info/gems/highline/1.6.2/frames).
+
+### Sinatra
+
+[Sinatra](http://www.sinatrarb.com/intro.html) is an awesome way to create websites in ruby very quickly and easily.
+
+Run the command:
+
+```bash
+$ rake sinatra
+```
+
+Or
+
+```bash
+$ ruby lib/sinatra.rb
+```
+
+    NOTE: Window's users need to use a backslash \ instead of forward slashes /
+
+It should launch a website on `localhost:4567` that if you visit in your browser. When that is working for you open up `lib/sinatra.rb` and look at the syntax. Again this strange sense of deja-vu when looking at the code.
+
+Look at the [documentation](http://www.sinatrarb.com/intro.html) and create some of your own routes and play with parameters.
