@@ -85,9 +85,11 @@ Now with those changes *staged*, it is time to commit them.
 
     $ git commit -m "Test fails and you're my only hope."
 
+Create a new repo on GitHub called week-02-exercise. Follow the directions to add the remote to your current directory.
+
 Push those changes to your git repository `week-02-exercise`
 
-    $ git push origin master
+    $ git push -u origin master
 
 #### Finding a Victim / Being a Victim
 
