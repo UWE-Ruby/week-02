@@ -43,8 +43,8 @@ These [instructions](http://help.github.com/create-a-repo/) will help you create
 
     NOTE: The instructions describe setting a repo named 'Hello World' instead use the name `week-02-exercse`.
     
-1. Creating a repository named: *week-02-exercise*
-2. Create a directory name: *week-02-exercise*
+1. Creating a repository named: *week-02-YOURNAME*
+2. Create a directory name: *week-02-YOURNAME*
 3. Within your `week-02-exercise` run the command `git init`
 2. Within your `week-02-exercise` directory, create a folder named `spec`
 3. Within the `spec` folder create a file named `exercise_spec.rb`
@@ -54,7 +54,7 @@ These [instructions](http://help.github.com/create-a-repo/) will help you create
 describe "Strings" do
   context "when calling strip" do
   
-    it "should remove all whitespace from the beginning and the end of the string"
+    it "should remove all whitespace from the beginning and the end of the string" do
     
         lyrics = "  Hello, is it me you're looking for I can see it in your eyes  "
         
