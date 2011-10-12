@@ -59,6 +59,7 @@ describe "Strings" do
         lyrics = "  Hello, is it me you're looking for I can see it in your eyes  "
         
         lyrics.strip.should eq "Hello, is it me you're looking for I can see it in your eyes"
+    end
   
   end
 
