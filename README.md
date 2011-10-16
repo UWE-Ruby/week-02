@@ -41,14 +41,16 @@ In this exercise we are going to create a new repository, author an RSpec test t
 These [instructions](http://help.github.com/create-a-repo/) will help you create a repository.
 
 
-    NOTE: The instructions describe setting a repo named 'Hello World' instead use the name `week-02-exercse`.
+    NOTE: The instructions above describe setting a repo named 'Hello World' instead use the name `week-02-YORNAME`.
     
 1. Creating a repository named: *week-02-YOURNAME*
 2. Create a directory name: *week-02-YOURNAME*
-3. Within your `week-02-exercise` run the command `git init`
-2. Within your `week-02-exercise` directory, create a folder named `spec`
+3. Within your `week-02-YOURNAME` run the command `git init`
+2. Within your `week-02-YOURNAME` directory, create a folder named `spec`
 3. Within the `spec` folder create a file named `exercise_spec.rb`
 4. Edit the file `exercise_spec.rb` and write a test for a [String](http://rubydoc.info/stdlib/core/1.9.2/String), [Integer](http://rubydoc.info/stdlib/core/1.9.2/Integer), or [Symbol](http://rubydoc.info/stdlib/core/1.9.2/Symbol).
+
+This is an example of a passing test for a [String](http://rubydoc.info/stdlib/core/1.9.2/String) that uses the method [#strip](http://rubydoc.info/stdlib/core/1.9.2/String#strip-instance_method)
 
 ```ruby
 describe "Strings" do
@@ -64,32 +66,56 @@ describe "Strings" do
   end
 
 end
+``` 
 
-```
+After you are sure that the test passed `add` and `commit` the changes. 
 
-When you get the test to pass successfully, it is time to make it fail. Change the test ever so slightly so that when you run the tests again you see an error.
-
-Excellent, now it is time to save the work.
-
-You are welcome to create a `README` file for your project within the `week-02-exercise` folder. In it you can write a description about the test you wrote and perhaps you can provide a link to the Ruby documentation that might help the user fix it.
-
-Within the root of your project directory
+Within the root of your project directory:
 
     $ git add spec/exercise_spec.rb
+    $ git commit -m "Added my working test"
+
+
+Now it is time to change the test so that it will fail. Here is an example of how I could subtly change it:
+
+```ruby
+describe "Strings" do
+  context "when calling strip" do
+  
+    it "should remove all whitespace from the beginning and the end of the string" do
     
-If you created a `README` file add it as well
+        lyrics = "  Hello, is it me you're looking for I can see it in your eyes "
+        
+        lyrics.strip.should eq " Hello, is it me you're looking for I can see it in your eyes "
+    end
+  
+  end
 
-    $ git add README
+end
+```
 
-Now with those changes *staged*, it is time to commit them.
+Excellent, now it is time again to save your work. `Add` and `commit` the changes.
 
+Within the root of your project directory:
+
+    $ git add spec/exercise_spec.rb
     $ git commit -m "Test fails and you're my only hope."
 
-Create a new repo on GitHub called week-02-exercise. Follow the directions to add the remote to your current directory.
+You are welcome to create a `README`, `Gemfile`, and `Guardfile` file for your project within the `week-02-YOURNAME` folder. For the README, you can write a description about the test you wrote and perhaps you can provide a link to the Ruby documentation that might help the user fix it. The `Gemfile` and `Guardfile` can simply be copies from the first week's assignment.
 
-Push those changes to your git repository `week-02-exercise`
+Within the root of your project directory:
+
+    $ git add README
+    $ git add Gemfile
+    $ git add Guardfile
+    
+    $ git commit -m "README, Gemfile, and Guardfile"
+
+
+Push all your committed changes to your git repository `week-02-YOURNAME`
 
     $ git push -u origin master
+
 
 #### Finding a Victim / Being a Victim
 
